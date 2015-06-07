@@ -8,8 +8,10 @@ data<- read.table("household_power_consumption.txt", header = TRUE, sep = ";", s
 
 data$Time<- strptime(data$Time, format = "%H:%M:%S")
 data$Date<-as.Date(data$Date, "%d/%m/%Y")
-days<-weekdays(datadate)
-data<-cbind(days, data)
+
+##This code was not needed, kept for reference:
+ ##       days<-weekdays(datadate)
+## data<-cbind(days, data)
 
 data1<-subset(data, data$Date >= "2007-02-01" & data$Date <= "2007-02-02")
 png(filename = "plot1.png", width = 480, height = 480, units = "px")
